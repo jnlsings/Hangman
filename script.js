@@ -20,7 +20,7 @@ const input = document.querySelector('.letter-guess');
 const guessedLetters = document.querySelector('.guessed-letters');
 
 const randomBtn = document.querySelector('.random-word-button');
-// to facilitate separating the button functions, declared variable outside function at Jared Morgan's suggestion
+// to facilitate separating the button functions, declared following variables outside function at Jared Morgan's suggestion
 let word = '';
 let letterSpace = '';
 let letters = '';
@@ -47,27 +47,39 @@ function handleRandomBtn(event) {
       // attach character divs to answer
       answer.appendChild(letterSpace);
       letterSpace.style.display = 'inline';
-      //   letterSpace.hide();
     }
-
-    // function handleGuessBtn(event) {
-    //   event.preventDefault();
   }
 }
 
 function handleGuessBtn(event) {
   event.preventDefault();
   for (let i = 0; i < letters.length; i++) {
-    if (letterSpace.innerText === input.value) {
+    if (letters[i].includes(input.value) === true) {
+      console.log('yes');
+      // letterSpace.innerText = input.value;
       letterSpace.style.backgroundColor = 'white';
-      // change display of that letter only to block
+      letterSpace.style.display = 'inline';
+      return;
+      // change display of that letter only to be visible
       // letters[i].style.visibility = 'visible';
-    } else if (letterSpace.innerText !== input.value) {
+    } else if (letters[i] !== input.value) {
       console.log('Try Again');
+      // return;
     }
+    guessedLetters.append(input.value);
   }
-  guessedLetters.append(input.value);
+  // if (guessedLetters.append(input.value) === true) {
+  // }
 }
+
+// letters.forEach(myFunction);
+// function myFunction(item, index) {
+//   if (letters.includes(input.value) === true) {
+//     letterSpace.style.backgroundColor = 'white';
+//     letterSpace.style.display = 'inline';
+//   } else if (letters.includes(input.value) === false) {
+//     console.log('Try again');
+//   }
 /** need:
  * function 1:
  *  choose random word from wordBank using randomBtn
