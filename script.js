@@ -17,13 +17,18 @@ const answer = document.querySelector('.answer');
 
 const input = document.querySelector('.letter-guess');
 
-const guessedLetters = document.querySelector('.guessed-letters');
+let guessedLetters = document.querySelector('.guessed-letters');
+
+let guessesSection = document.querySelector('.guesses');
 
 const randomBtn = document.querySelector('.random-word-button');
 // to facilitate separating the button functions, declared following variables outside function at Jared Morgan's suggestion
 let word = '';
 let letterSpace = '';
 let letters = '';
+let graphicText = document.querySelector('.graphic-text');
+
+guessedLetters = [];
 
 randomBtn.addEventListener('click', handleRandomBtn);
 
@@ -43,6 +48,8 @@ function handleRandomBtn(event) {
 
       letterSpace = document.createElement('div');
       letterSpace.setAttribute('class', 'letter-holder');
+      // at Jerrica's suggestion, added new class to letterSpace to be able to find all matching values in following function
+      letterSpace.classList.add(letters[i]);
       letterSpace.append(letters[i]);
       // attach character divs to answer
       answer.appendChild(letterSpace);
@@ -53,24 +60,34 @@ function handleRandomBtn(event) {
 
 function handleGuessBtn(event) {
   event.preventDefault();
+  // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
+  guessedLetters.push(input.value);
+  guessesSection.append(input.value);
+  console.log(guessesSection);
   for (let i = 0; i < letters.length; i++) {
     if (letters[i].includes(input.value) === true) {
       console.log('yes');
+      console.log(letterSpace);
       // letterSpace.innerText = input.value;
-      letterSpace.style.backgroundColor = 'white';
+      // find divs to set bg color for using the class
+      letterSpace.style.backgroundColor = 'oldlace';
       letterSpace.style.display = 'inline';
-      return;
-      // change display of that letter only to be visible
-      // letters[i].style.visibility = 'visible';
-    } else if (letters[i] !== input.value) {
+      return; // makes sure loop only prints one guessed letter
+    }
+    if (letters[i] !== input.value) {
       console.log('Try Again');
       // return;
     }
-    guessedLetters.append(input.value);
   }
-  // if (guessedLetters.append(input.value) === true) {
-  // }
 }
+
+if (guessedLetters.length >= 10) {
+  graphicText.innerText = 'YOU LOSE';
+}
+// if (guessedLetters.append(input.value) === true) {
+// }
+// change display of that letter only to be visible
+// letters[i].style.visibility = 'visible';
 
 // letters.forEach(myFunction);
 // function myFunction(item, index) {
@@ -90,4 +107,7 @@ function handleGuessBtn(event) {
  *  function 2:
  *  guess letter (input.value) using guessBtn
  *  if input.value is equal to a value in the           letters array (how to access when this was          created inside of function 1????), then reveal      matching values in the array by changing corresponding div display to "inline"
+ *
+ * if guessedLetters.length >= 15, change innerText of .graphic-text to You Lose
+ * if all letters in word are revealed
  */

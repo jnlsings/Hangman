@@ -9,14 +9,19 @@
   </head>
   <body>
     <h1>HANGMAN</h1>
-    <div>graphic</div>
+    <div class="graphic">
+      <p class="graphic-text">Save Me</p>
+    </div>
     <div class="answer"></div>
-    <section>
+    <section class="input">
       <p></p>
+      <input type="text" class="letter-guess" />
+      <button class="guess-button">Guess Letter</button>
     </section>
-    <input type="text" class="letter-guess" />
-    <button class="guess-button">Guess Letter</button>
-    <div class="guessed-letters"></div>
+    <section class="guesses">
+      <div class="guessed-letters"></div>
+    </section>
+
     <button class="random-word-button">Generate Word</button>
     <script src="script.js"></script>
   </body>

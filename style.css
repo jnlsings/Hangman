@@ -1,16 +1,52 @@
-/* .answer {
+body {
+  text-align: center;
+  background-color: oldlace;
+}
+
+h1 {
+  color: hotpink;
+  font-size: 50px;
+}
+
+.graphic {
+  border: 2px solid black;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  text-align: center;
+}
+
+.graphic-text {
+  margin-top: 88px;
+  color: hotpink;
+  font-size: 25px;
+}
+
+.random-word-button {
+  margin: 50px;
+}
+
+.answer {
   display: 'none';
   font-size: 50px;
+  margin: 50px;
 }
 
 .letter-space {
   display: 'none';
   background-color: black;
-} */
+}
 
 .letter-holder {
   margin: 8px;
   border-bottom: 2px solid black;
+  font-weight: bold;
   display: 'none';
   background-color: black;
+}
+
+.guesses {
+  color: crimson;
+  font-weight: bold;
+  font-size: 50px;
 }
