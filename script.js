@@ -30,59 +30,71 @@ let graphicText = document.querySelector('.graphic-text');
 
 guessedLetters = [];
 
-randomBtn.addEventListener('click', handleRandomBtn);
+// randomBtn.addEventListener('click', handleRandomBtn);
 
 guessBtn.addEventListener('click', handleGuessBtn);
 
-// create function that when random button is pressed, random word is generated from wordBank and stored as an array of characters each in its own div, but hidden
-function handleRandomBtn(event) {
-  event.preventDefault();
-  word = wordBank[Math.floor(Math.random() * wordBank.length)];
-  console.log(word);
-  for (let i = 0; i < 1; i += 1) {
-    letters = word.split('');
-    console.log(letters);
+input.addEventListener('keyup', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    guessBtn.click();
+  }
+});
 
-    for (let i = 0; i < letters.length; i++) {
-      // create div + store each character in one
+/**function called renderLetters - job to paint hidden letters on page
+ * invoked when first load the page
+ * when use guesses letter, pass letter to the function and it will figure out which characters to hide and which to show
+ * need some way of deleting the old dom elements from the page
+ *
+ */
 
-      letterSpace = document.createElement('div');
-      letterSpace.setAttribute('class', 'letter-holder');
-      // at Jerrica's suggestion, added new class to letterSpace to be able to find all matching values in following function
-      letterSpace.classList.add(letters[i]);
-      letterSpace.append(letters[i]);
-      // attach character divs to answer
-      answer.appendChild(letterSpace);
-      letterSpace.style.display = 'inline';
-    }
+word = wordBank[Math.floor(Math.random() * wordBank.length)];
+console.log(word);
+for (let i = 0; i < 1; i += 1) {
+  letters = word.split('');
+  console.log(letters);
+}
+
+function renderLetters() {
+  for (let i = 0; i < letters.length; i++) {
+    // create div + store each character in one
+    letterSpace = document.createElement('div');
+    letterSpace.setAttribute('class', 'letter-holder');
+    // at Jerrica's suggestion, added new class to letterSpace to be able to find all matching values in following function
+    letterSpace.classList.add(letters[i]);
+    letterSpace.append(letters[i]);
+    // attach character divs to answer
+    answer.appendChild(letterSpace);
+    letterSpace.style.display = 'inline';
   }
 }
+renderLetters();
 
 function handleGuessBtn(event) {
   event.preventDefault();
   // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
-  // guessedLetters.push(input.value);
+  guessedLetters.push(input.value);
   guessesSection.append(input.value);
   console.log(guessesSection);
   // console.log(letterSpace.letters[i]);
   for (let i = 0; i < letters.length; i++) {
-    if (letters[i].includes(input.value) === true) {
+    if (letters.includes(input.value)) {
       console.log('yes');
       console.log(letterSpace);
       // letterSpace.innerText = input.value;
       // find divs to set bg color for using the class
       letterSpace.style.backgroundColor = 'oldlace';
-      // letterSpace.letters[i] += 'letters';
       letterSpace.style.display = 'inline';
-      return; // makes sure loop only prints one guessed letter
     }
-    if (letters[i] !== input.value) {
+    if (!letters.includes(input.value)) {
       console.log('Try Again');
+      return;
       // return;
     }
-    if (letters[i] !== input.value && guessedLetters.length >= 15) {
-      console.log('YOU LOSE');
-    }
+    // won't work, because loop only goes for the length of the word
+    // if (letters[i] !== input.value && guessedLetters.length >= 15) {
+    //   console.log('YOU LOSE');
+    // }
   }
 }
 
