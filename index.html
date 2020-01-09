@@ -15,14 +15,16 @@
     <div class="answer"></div>
     <section class="input">
       <p></p>
-      <input type="text" class="letter-guess" />
+      <input type="text" class="letter-guess" onfocus="this.value=''" />
       <button class="guess-button">Guess Letter</button>
     </section>
     <section class="guesses">
       <div class="guessed-letters"></div>
     </section>
 
-    <button class="random-word-button">Generate Word</button>
+    <button class="random-word-button">
+      Generate Word
+    </button>
     <script src="script.js"></script>
   </body>
 </html>

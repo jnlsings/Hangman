@@ -80,8 +80,8 @@ function handleGuessBtn(event) {
       console.log('Try Again');
       // return;
     }
-    if (guessedLetters.length >= 10) {
-      graphicText.innerText = 'YOU LOSE';
+    if (letters[i] !== input.value && guessedLetters.length >= 15) {
+      console.log('YOU LOSE');
     }
   }
 }
