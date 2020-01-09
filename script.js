@@ -61,9 +61,10 @@ function handleRandomBtn(event) {
 function handleGuessBtn(event) {
   event.preventDefault();
   // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
-  guessedLetters.push(input.value);
+  // guessedLetters.push(input.value);
   guessesSection.append(input.value);
   console.log(guessesSection);
+  // console.log(letterSpace.letters[i]);
   for (let i = 0; i < letters.length; i++) {
     if (letters[i].includes(input.value) === true) {
       console.log('yes');
@@ -71,6 +72,7 @@ function handleGuessBtn(event) {
       // letterSpace.innerText = input.value;
       // find divs to set bg color for using the class
       letterSpace.style.backgroundColor = 'oldlace';
+      // letterSpace.letters[i] += 'letters';
       letterSpace.style.display = 'inline';
       return; // makes sure loop only prints one guessed letter
     }
@@ -78,12 +80,12 @@ function handleGuessBtn(event) {
       console.log('Try Again');
       // return;
     }
+    if (guessedLetters.length >= 10) {
+      graphicText.innerText = 'YOU LOSE';
+    }
   }
 }
 
-if (guessedLetters.length >= 10) {
-  graphicText.innerText = 'YOU LOSE';
-}
 // if (guessedLetters.append(input.value) === true) {
 // }
 // change display of that letter only to be visible
