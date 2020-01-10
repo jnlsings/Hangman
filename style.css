@@ -34,12 +34,6 @@ h1 {
   font-weight: bold;
 }
 
-.random-word-button {
-  padding: 10px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
 .answer {
   font-size: 50px;
   margin: 50px;
@@ -61,4 +55,10 @@ h1 {
   font-weight: bold;
   font-size: 40px;
   margin: 25px;
+}
+
+.reset-button {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }

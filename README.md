@@ -34,3 +34,13 @@ Anyone who wants to build their music vocabulary and test their existing one.
 * Upon loss or win, display image or gif
 
 * Make image/gif progression music related in some way
+
+## Acknowledgements
+
+I would like to thank Hou Chia, Jerrica Bobadilla, and Jared Morgan for their help making my game logic work.
+
+## Sources
+
+[removeChild()](https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/)
+[location reload](https://www.w3schools.com/jsref/met_loc_reload.asp)
+[input field tools](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-maxlength)
