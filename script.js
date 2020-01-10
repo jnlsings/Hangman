@@ -15,6 +15,8 @@ const guessBtn = document.querySelector('.guess-button');
 
 const answer = document.querySelector('.answer');
 
+// answer.style.visibility = 'hidden';
+
 const input = document.querySelector('.letter-guess');
 
 let guessedLetters = document.querySelector('.guessed-letters');
@@ -26,7 +28,9 @@ const randomBtn = document.querySelector('.random-word-button');
 let word = '';
 let letterSpace = '';
 let letters = '';
-let graphicText = document.querySelector('.graphic-text');
+let graphicText = '';
+let holder = '';
+document.querySelector('.graphic-text');
 
 guessedLetters = [];
 
@@ -41,33 +45,47 @@ input.addEventListener('keyup', function(event) {
   }
 });
 
-/**function called renderLetters - job to paint hidden letters on page
- * invoked when first load the page
- * when use guesses letter, pass letter to the function and it will figure out which characters to hide and which to show
- * need some way of deleting the old dom elements from the page
- *
- */
-
 word = wordBank[Math.floor(Math.random() * wordBank.length)];
 console.log(word);
 for (let i = 0; i < 1; i += 1) {
   letters = word.split('');
   console.log(letters);
 }
-
+// created separate renderLetters function and
 function renderLetters() {
   for (let i = 0; i < letters.length; i++) {
     // create div + store each character in one
     letterSpace = document.createElement('div');
+    // letterSpace.style.visibility = 'hidden';
     letterSpace.setAttribute('class', 'letter-holder');
     // at Jerrica's suggestion, added new class to letterSpace to be able to find all matching values in following function
     letterSpace.classList.add(letters[i]);
     letterSpace.append(letters[i]);
     // attach character divs to answer
     answer.appendChild(letterSpace);
+    // letterSpace.style.visibility = 'visible';
     letterSpace.style.display = 'inline';
   }
 }
+
+function checkLetter(letter) {
+  holder = document.querySelectorAll('.letter-holder');
+  for (let i = 0; i < holder.length; i++) {
+    if (holder[i].classList[1] === letter) {
+      holder[i].style.backgroundColor = 'oldlace';
+    }
+    console.log(holder[i]);
+  }
+}
+function deleteLetterSpaces() {
+  let child = answer.firstElementChild;
+  while (child) {
+    answer.removeChild(child);
+    child = answer.firstElementChild;
+  }
+}
+deleteLetterSpaces();
+
 renderLetters();
 
 function handleGuessBtn(event) {
@@ -79,16 +97,16 @@ function handleGuessBtn(event) {
   // console.log(letterSpace.letters[i]);
   for (let i = 0; i < letters.length; i++) {
     if (letters.includes(input.value)) {
+      checkLetter(input.value);
       console.log('yes');
       console.log(letterSpace);
       // letterSpace.innerText = input.value;
       // find divs to set bg color for using the class
-      letterSpace.style.backgroundColor = 'oldlace';
+      // letterSpace.style.backgroundColor = 'oldlace';
       letterSpace.style.display = 'inline';
     }
     if (!letters.includes(input.value)) {
       console.log('Try Again');
-      return;
       // return;
     }
     // won't work, because loop only goes for the length of the word
