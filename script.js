@@ -35,7 +35,7 @@ let holder = '';
 guessedLetters = [];
 
 guessBtn.addEventListener('click', handleGuessBtn);
-
+// take input value on enter key
 input.addEventListener('keyup', function(event) {
   if (event.keyCode === 13) {
     event.preventDefault();
@@ -70,7 +70,7 @@ function checkLetter(letter) {
     if (holder[i].classList[1] === letter) {
       holder[i].style.backgroundColor = 'oldlace';
     }
-  }
+  } // invoked youWin here at Hou's suggestion
   youWin();
 }
 
