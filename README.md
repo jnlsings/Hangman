@@ -1,4 +1,4 @@
-# H1 Hangman
+# Hangman
 
 [Play Hangman Here](https://jnlsings.github.io/Hangman/)
 
@@ -12,15 +12,25 @@ Simply enter your letter guesses into the input field until you have revealed th
 
 ## Who is this for?
 
-Anyone who wants to build their vocabulary and test their existing one. Currently working with a limited array of voice type terms, will be linking to
+Anyone who wants to build their music vocabulary and test their existing one.
 
-## Roadblocks
+## Future additions
 
-- No music dictionary API
+- Music dictionary API
+
   - I was unable to find a music dictionary/vocabulary API and needed to focus on getting the basic game logic working first. As a result, the word database I created is limited. I hope to be able to expand the database in the future.
 
-* Unable to get show/hide or display: 'none' to work on letter divs
+* Change letter hide/show mechanic
 
-  - Letters are revealed by changing the background color of the divs that hold them
+  - Want to hide letters but not the entire div
+  - Reveal them by changing the display or visibility, not the background color
 
-*
+* Replace text box with image
+
+* Set a limit to the number of wrong guesses
+
+* For each wrong guess, change the image to show a hangman progression
+
+* Upon loss or win, display image or gif
+
+* Make image/gif progression music related in some way

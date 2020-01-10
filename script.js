@@ -81,7 +81,7 @@ function youWin() {
       return;
     }
   }
-  graphicText.innerText = 'You Win';
+  graphicText.innerText = 'My Hero!';
   return;
 }
 
@@ -99,16 +99,15 @@ renderLetters();
 function handleGuessBtn(event) {
   event.preventDefault();
   // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
+} // changed !== to ! since includes auto evaluates to boolean re: hou's suggestion
+if (!letters.includes(input.value)) {
+  console.log('Try Again');
   guessedLetters.push(input.value);
   guessesSection.append(input.value);
-
-  for (let i = 0; i < letters.length; i++) {
-    if (letters.includes(input.value)) {
-      checkLetter(input.value);
-      letterSpace.style.display = 'inline';
-    } // changed !== to ! since includes auto evaluates to boolean re: hou's suggestion
-    if (!letters.includes(input.value)) {
-      console.log('Try Again');
-    }
+}
+for (let i = 0; i < letters.length; i++) {
+  if (letters.includes(input.value)) {
+    checkLetter(input.value);
+    letterSpace.style.display = 'inline';
   }
 }
