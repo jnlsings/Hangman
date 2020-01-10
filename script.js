@@ -76,6 +76,9 @@ function checkLetter(letter) {
     }
     console.log(holder[i]);
   }
+  if (holder[i].style.backgroundColor === 'oldlace') {
+    console.log('you win');
+  }
 }
 function deleteLetterSpaces() {
   let child = answer.firstElementChild;
@@ -115,7 +118,6 @@ function handleGuessBtn(event) {
     // }
   }
 }
-
 // if (guessedLetters.append(input.value) === true) {
 // }
 // change display of that letter only to be visible
