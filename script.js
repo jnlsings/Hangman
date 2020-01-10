@@ -10,12 +10,9 @@ const wordBank = [
   'mezzo'
 ];
 
-const guess = document.querySelector('.letter-guess');
 const guessBtn = document.querySelector('.guess-button');
 
 const answer = document.querySelector('.answer');
-
-// answer.style.visibility = 'hidden';
 
 const input = document.querySelector('.letter-guess');
 
@@ -89,7 +86,6 @@ function youWin() {
 
 function youLose() {
   if (guessedLetters.length > 13) {
-    console.log('I DIED :(');
     graphicText.innerText = 'I DIED :(';
     return;
   }
@@ -111,7 +107,6 @@ function handleGuessBtn(event) {
   // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
   // changed !== to ! since includes auto evaluates to boolean re: hou's suggestion
   if (!letters.includes(input.value)) {
-    console.log('Try Again');
     guessedLetters.push(input.value);
     guessesSection.append(input.value);
     youLose();
