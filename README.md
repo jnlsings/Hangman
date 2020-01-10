@@ -44,5 +44,7 @@ I would like to thank Hou Chia, Jerrica Bobadilla, and Jared Morgan for their he
 ## Sources
 
 [removeChild()](https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/)
+
 [location reload](https://www.w3schools.com/jsref/met_loc_reload.asp)
+
 [input field tools](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-maxlength)
