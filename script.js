@@ -23,14 +23,14 @@ let guessedLetters = document.querySelector('.guessed-letters');
 
 let guessesSection = document.querySelector('.guesses');
 
+let graphicText = document.querySelector('.graphic-text');
+
 const randomBtn = document.querySelector('.random-word-button');
 // to facilitate separating the button functions, declared following variables outside function at Jared Morgan's suggestion
 let word = '';
 let letterSpace = '';
 let letters = '';
-let graphicText = '';
 let holder = '';
-document.querySelector('.graphic-text');
 
 guessedLetters = [];
 
@@ -70,17 +70,19 @@ function checkLetter(letter) {
     if (holder[i].classList[1] === letter) {
       holder[i].style.backgroundColor = 'oldlace';
     }
-    console.log(holder[i]);
   }
+  youWin();
 }
 
 function youWin() {
   allSpaces = document.querySelectorAll('.letter-holder');
   for (let i = 0; i < allSpaces.length; i++) {
-    if (allSpaces.backgroundColor === 'oldlace') {
-      console.log('you win');
+    if (allSpaces[i].style.backgroundColor !== 'oldlace') {
+      return;
     }
   }
+  graphicText.innerText = 'You Win';
+  return;
 }
 
 function deleteLetterSpaces() {
@@ -99,13 +101,10 @@ function handleGuessBtn(event) {
   // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
   guessedLetters.push(input.value);
   guessesSection.append(input.value);
-  console.log(guessesSection);
 
   for (let i = 0; i < letters.length; i++) {
     if (letters.includes(input.value)) {
       checkLetter(input.value);
-      console.log('yes');
-      console.log(letterSpace);
       letterSpace.style.display = 'inline';
     } // changed !== to ! since includes auto evaluates to boolean re: hou's suggestion
     if (!letters.includes(input.value)) {
