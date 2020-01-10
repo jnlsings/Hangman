@@ -26,6 +26,8 @@ let guessesSection = document.querySelector('.guesses');
 let graphicText = document.querySelector('.graphic-text');
 
 const randomBtn = document.querySelector('.random-word-button');
+
+let resetBtn = document.querySelector('.reset-button');
 // to facilitate separating the button functions, declared following variables outside function at Jared Morgan's suggestion
 let word = '';
 let letterSpace = '';
@@ -85,6 +87,14 @@ function youWin() {
   return;
 }
 
+function youLose() {
+  if ((guessedLetters.length = 15)) {
+    console.log('BLARGH I DIED!!');
+    graphicText.innerText = 'BLARGH I DIED!!';
+    return;
+  }
+}
+
 function deleteLetterSpaces() {
   let child = answer.firstElementChild;
   while (child) {
@@ -99,15 +109,23 @@ renderLetters();
 function handleGuessBtn(event) {
   event.preventDefault();
   // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
-} // changed !== to ! since includes auto evaluates to boolean re: hou's suggestion
-if (!letters.includes(input.value)) {
-  console.log('Try Again');
-  guessedLetters.push(input.value);
-  guessesSection.append(input.value);
-}
-for (let i = 0; i < letters.length; i++) {
-  if (letters.includes(input.value)) {
-    checkLetter(input.value);
-    letterSpace.style.display = 'inline';
+  // changed !== to ! since includes auto evaluates to boolean re: hou's suggestion
+  if (!letters.includes(input.value)) {
+    console.log('Try Again');
+    guessedLetters.push(input.value);
+    guessesSection.append(input.value);
+    youLose();
   }
+  for (let i = 0; i < letters.length; i++) {
+    if (letters.includes(input.value)) {
+      checkLetter(input.value);
+      letterSpace.style.display = 'inline';
+    }
+  }
+}
+
+resetBtn.addEventListener('click', resetGame);
+
+function resetGame() {
+  location.reload();
 }
