@@ -7,21 +7,22 @@ body {
 h1 {
   color: black;
   font-size: 90px;
+  margin: 25px;
 }
 
 .graphic {
   border: 2px solid black;
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 200px;
   margin: auto;
   text-align: center;
 }
 
 .graphic-text {
-  margin-top: 100px;
+  margin-top: 60px;
   color: red;
   font-weight: bold;
-  font-size: 80px;
+  font-size: 70px;
   text-align: center;
 }
 
@@ -40,7 +41,7 @@ h1 {
 }
 
 .answer {
-  font-size: 80px;
+  font-size: 70px;
   margin: 50px;
 }
 
@@ -58,7 +59,7 @@ h1 {
 .guesses {
   color: black;
   font-weight: bold;
-  font-size: 80px;
+  font-size: 70px;
   margin: 25px;
 }
 
