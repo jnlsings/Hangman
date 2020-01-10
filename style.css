@@ -1,41 +1,46 @@
 body {
   text-align: center;
   background-color: oldlace;
+  font-family: 'Amatic SC', cursive;
 }
 
 h1 {
   color: black;
-  font-size: 50px;
+  font-size: 90px;
 }
 
 .graphic {
   border: 2px solid black;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   margin: auto;
   text-align: center;
 }
 
 .graphic-text {
-  margin-top: 85px;
+  margin-top: 100px;
   color: red;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 80px;
+  text-align: center;
 }
 
 .letter-guess {
   padding: 10px;
-  font-size: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Amatic SC', cursive;
 }
 
 .guess-button {
   padding: 10px;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
+  font-family: 'Amatic SC', cursive;
 }
 
 .answer {
-  font-size: 50px;
+  font-size: 80px;
   margin: 50px;
 }
 
@@ -53,12 +58,13 @@ h1 {
 .guesses {
   color: black;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 80px;
   margin: 25px;
 }
 
 .reset-button {
   padding: 10px;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
+  font-family: 'Amatic SC', cursive;
 }

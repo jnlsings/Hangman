@@ -88,9 +88,9 @@ function youWin() {
 }
 
 function youLose() {
-  if ((guessedLetters.length = 15)) {
-    console.log('BLARGH I DIED!!');
-    graphicText.innerText = 'BLARGH I DIED!!';
+  if (guessedLetters.length > 13) {
+    console.log('I DIED :(');
+    graphicText.innerText = 'I DIED :(';
     return;
   }
 }

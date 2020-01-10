@@ -8,7 +8,7 @@ Originally I wanted to make an educational music vocabulary hangman game that co
 
 ## How to Play
 
-Simply enter your letter guesses into the input field until you have revealed the word! At this time guesses are unlimited.
+Simply enter your letter guesses into the input field until you have revealed the word!
 
 ## Who is this for?
 
@@ -25,13 +25,15 @@ Anyone who wants to build their music vocabulary and test their existing one.
   - Want to hide letters but not the entire div
   - Reveal them by changing the display or visibility, not the background color
 
-* Replace text box with image
+* Prevent duplicate wrong letter entry in input field
 
-* Set a limit to the number of wrong guesses
+* Limit input to alpha only
+
+* Replace text box with image
 
 * For each wrong guess, change the image to show a hangman progression
 
-* Upon loss or win, display image or gif
+* Upon loss or win, display image or gif instead of changing text
 
 * Make image/gif progression music related in some way
 
