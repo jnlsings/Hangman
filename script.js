@@ -10,22 +10,16 @@ const wordBank = [
   'mezzo'
 ];
 
-const guessBtn = document.querySelector('.guess-button');
-
-const answer = document.querySelector('.answer');
-
-const input = document.querySelector('.letter-guess');
-
+let guessBtn = document.querySelector('.guess-button');
+let answer = document.querySelector('.answer');
+let input = document.querySelector('.letter-guess');
 let guessedLetters = document.querySelector('.guessed-letters');
-
 let guessesSection = document.querySelector('.guesses');
-
 let graphicText = document.querySelector('.graphic-text');
-
-const randomBtn = document.querySelector('.random-word-button');
-
+let randomBtn = document.querySelector('.random-word-button');
 let resetBtn = document.querySelector('.reset-button');
-// to facilitate separating the button functions, declared following variables outside function at Jared Morgan's suggestion
+
+// to facilitate separating the button functions, declared following variables globally at Jared Morgan's suggestion
 let word = '';
 let letterSpace = '';
 let letters = '';
@@ -48,6 +42,7 @@ for (let i = 0; i < 1; i += 1) {
   letters = word.split('');
   console.log(letters);
 }
+
 // created separate renderLetters function at Hou's suggestion
 function renderLetters() {
   for (let i = 0; i < letters.length; i++) {
