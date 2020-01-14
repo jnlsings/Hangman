@@ -26,21 +26,6 @@ let letterSpace = '';
 let letters = '';
 let holder = '';
 
-guessedLetters = [];
-
-guessBtn.addEventListener('click', handleGuessBtn);
-// take input value on enter key
-input.addEventListener('keyup', function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    guessBtn.click();
-  }
-});
-
-word = wordBank[Math.floor(Math.random() * wordBank.length)];
-for (let i = 0; i < 1; i += 1) {
-  letters = word.split('');
-}
 // created separate renderLetters function at Hou's suggestion
 function renderLetters() {
   for (let i = 0; i < letters.length; i++) {
@@ -91,9 +76,6 @@ function deleteLetterSpaces() {
     child = answer.firstElementChild;
   }
 }
-deleteLetterSpaces();
-
-renderLetters();
 
 function handleGuessBtn(event) {
   event.preventDefault();
@@ -112,8 +94,32 @@ function handleGuessBtn(event) {
   }
 }
 
-resetBtn.addEventListener('click', resetGame);
-
 function resetGame() {
   location.reload();
 }
+
+function initialize() {
+  guessedLetters = [];
+
+  guessBtn.addEventListener('click', handleGuessBtn);
+  // take input value on enter key
+  input.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      guessBtn.click();
+    }
+  });
+
+  resetBtn.addEventListener('click', resetGame);
+
+  word = wordBank[Math.floor(Math.random() * wordBank.length)];
+  for (let i = 0; i < 1; i += 1) {
+    letters = word.split('');
+  }
+
+  deleteLetterSpaces();
+
+  renderLetters();
+}
+
+initialize();
