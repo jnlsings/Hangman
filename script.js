@@ -14,6 +14,7 @@ const guess = document.querySelector('.letter-guess');
 const guessBtn = document.querySelector('.guess-button');
 const answer = document.querySelector('.answer');
 const input = document.querySelector('.letter-guess');
+// Hou comment: you could probably declare `const` for lines 18, 19, 20, and 22
 let guessedLetters = document.querySelector('.guessed-letters');
 let guessesSection = document.querySelector('.guesses');
 let graphicText = document.querySelector('.graphic-text');
