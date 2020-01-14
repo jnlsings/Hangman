@@ -14,9 +14,6 @@ const guess = document.querySelector('.letter-guess');
 const guessBtn = document.querySelector('.guess-button');
 
 const answer = document.querySelector('.answer');
-
-// answer.style.visibility = 'hidden';
-
 const input = document.querySelector('.letter-guess');
 
 let guessedLetters = document.querySelector('.guessed-letters');
@@ -46,10 +43,8 @@ input.addEventListener('keyup', function(event) {
 });
 
 word = wordBank[Math.floor(Math.random() * wordBank.length)];
-console.log(word);
 for (let i = 0; i < 1; i += 1) {
   letters = word.split('');
-  console.log(letters);
 }
 // created separate renderLetters function at Hou's suggestion
 function renderLetters() {
@@ -89,7 +84,6 @@ function youWin() {
 
 function youLose() {
   if (guessedLetters.length > 13) {
-    console.log('I DIED :(');
     graphicText.innerText = 'I DIED :(';
     return;
   }
@@ -111,7 +105,6 @@ function handleGuessBtn(event) {
   // moved .push and .append above for loop @ Jerrica Bobadilla's suggestion
   // changed !== to ! since includes auto evaluates to boolean re: hou's suggestion
   if (!letters.includes(input.value)) {
-    console.log('Try Again');
     guessedLetters.push(input.value);
     guessesSection.append(input.value);
     youLose();
