@@ -12,19 +12,14 @@ const wordBank = [
 
 const guess = document.querySelector('.letter-guess');
 const guessBtn = document.querySelector('.guess-button');
-
 const answer = document.querySelector('.answer');
 const input = document.querySelector('.letter-guess');
-
 let guessedLetters = document.querySelector('.guessed-letters');
-
 let guessesSection = document.querySelector('.guesses');
-
 let graphicText = document.querySelector('.graphic-text');
-
 const randomBtn = document.querySelector('.random-word-button');
-
 let resetBtn = document.querySelector('.reset-button');
+
 // to facilitate separating the button functions, declared following variables outside function at Jared Morgan's suggestion
 let word = '';
 let letterSpace = '';
